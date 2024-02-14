@@ -46,6 +46,6 @@ workflows:
 
   bridgecrew:
     jobs:
-      - checkov:
+      - bridgecrew:
           requires:
             - build

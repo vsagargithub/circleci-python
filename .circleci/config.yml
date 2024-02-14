@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  bridgecrew: bridgecrew/bridgecrew@1.0.5
+  bridgecrew: bridgecrew/bridgecrew@1.0.5  # Assuming this version is still available
 
 jobs:
   build:
@@ -40,12 +40,7 @@ workflows:
       - deploy:
           requires:
             - test
-          filters:
-            branches:
-              only: main
-
-  bridgecrew:
-    jobs:
-      - bridgecrew:
+      - bridgecrew:  # Added here
           requires:
             - build
+

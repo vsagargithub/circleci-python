@@ -21,11 +21,11 @@ jobs:
       - image: cimg/python:3.11
     steps:
       - run: echo "Deploying to production server"
-  checkov:
-    executor: checkov/default
+  bridgecrew:
+    executor: bridgecrew/default
     steps:
       - checkout
-      - checkov/scan:
+      - bridgecrew/scan:
           directory: .
           api-key-variable: BC_API_KEY
           prisma-api-url: https://api.prismacloud.io
@@ -44,7 +44,7 @@ workflows:
             branches:
               only: main
 
-  checkov:
+  bridgecrew:
     jobs:
       - checkov:
           requires:
